@@ -1,0 +1,22 @@
+[0.062s] Invoking command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/send_poses': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/pablo/Documents/robotic_sim/2_wheeled/build/send_poses -- -j12 -l12
+[0.159s] [100%] Built target send_poses
+[0.194s] Invoked command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/send_poses' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/pablo/Documents/robotic_sim/2_wheeled/build/send_poses -- -j12 -l12
+[0.302s] Invoking command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/send_poses': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/pablo/Documents/robotic_sim/2_wheeled/build/send_poses
+[0.333s] -- Install configuration: ""
+[0.334s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/lib/send_poses/send_poses
+[0.334s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/ament_index/resource_index/package_run_dependencies/send_poses
+[0.334s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/ament_index/resource_index/parent_prefix_path/send_poses
+[0.334s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/environment/ament_prefix_path.sh
+[0.334s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/environment/ament_prefix_path.dsv
+[0.334s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/environment/path.sh
+[0.334s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/environment/path.dsv
+[0.334s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/local_setup.bash
+[0.335s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/local_setup.sh
+[0.335s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/local_setup.zsh
+[0.335s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/local_setup.dsv
+[0.335s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/package.dsv
+[0.335s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/ament_index/resource_index/packages/send_poses
+[0.335s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/cmake/send_posesConfig.cmake
+[0.335s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/cmake/send_posesConfig-version.cmake
+[0.335s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/package.xml
+[0.373s] Invoked command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/send_poses' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/pablo/Documents/robotic_sim/2_wheeled/build/send_poses

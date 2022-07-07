@@ -1,0 +1,113 @@
+[0.119s] Invoking command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation -DCMAKE_INSTALL_PREFIX=/home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation
+[0.265s] -- The C compiler identification is GNU 9.4.0
+[0.488s] -- The CXX compiler identification is GNU 9.4.0
+[0.515s] -- Check for working C compiler: /usr/bin/cc
+[0.680s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.681s] -- Detecting C compiler ABI info
+[0.850s] -- Detecting C compiler ABI info - done
+[0.867s] -- Detecting C compile features
+[0.868s] -- Detecting C compile features - done
+[0.878s] -- Check for working CXX compiler: /usr/bin/c++
+[1.027s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[1.028s] -- Detecting CXX compiler ABI info
+[1.173s] -- Detecting CXX compiler ABI info - done
+[1.186s] -- Detecting CXX compile features
+[1.188s] -- Detecting CXX compile features - done
+[1.207s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.282s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[1.283s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.005s] -- Found rclcpp: 2.4.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[2.310s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.378s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[2.856s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[3.000s] -- Found FastRTPS: /opt/ros/foxy/include  
+[3.255s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.448s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[3.451s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.453s] -- Looking for pthread.h
+[3.568s] -- Looking for pthread.h - found
+[3.568s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[3.676s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[3.676s] -- Looking for pthread_create in pthreads
+[3.802s] -- Looking for pthread_create in pthreads - not found
+[3.802s] -- Looking for pthread_create in pthread
+[3.889s] -- Looking for pthread_create in pthread - found
+[3.890s] -- Found Threads: TRUE  
+[4.201s] -- Found tf2: 0.13.13 (/opt/ros/foxy/share/tf2/cmake)
+[4.278s] -- Found tf2_ros: 0.13.13 (/opt/ros/foxy/share/tf2_ros/cmake)
+[4.879s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[4.976s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[5.193s] -- Configuring done
+[5.217s] -- Generating done
+[5.220s] -- Build files have been written to: /home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation
+[5.261s] Invoked command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation -DCMAKE_INSTALL_PREFIX=/home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation
+[5.266s] Invoking command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation -- -j12 -l12
+[5.349s] [35m[1mScanning dependencies of target map_generation[0m
+[5.489s] [ 33%] [32mBuilding CXX object CMakeFiles/map_generation.dir/src/map_generation.cpp.o[0m
+[5.494s] [ 66%] [32mBuilding CXX object CMakeFiles/map_generation.dir/src/occupancy_map.cpp.o[0m
+[8.466s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/map_generation.cpp:[m[K In member function ‘[01m[Kvoid MapGenerator::laser_callback(sensor_msgs::msg::LaserScan_<std::allocator<void> >::SharedPtr)[m[K’:
+[8.466s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/map_generation.cpp:105:74:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[8.467s]   105 |         void laser_callback([01;35m[Kconst sensor_msgs::msg::LaserScan::SharedPtr msg[m[K){
+[8.467s]       |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[8.515s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:7:31:[m[K [01;35m[Kwarning: [m[Kextra ‘[01m[K;[m[K’ [[01;35m[K-Wpedantic[m[K]
+[8.516s]     7 | occupancyMap::occupancyMap(){}[01;35m[K;[m[K
+[8.516s]       |                               [01;35m[K^[m[K
+[8.530s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:[m[K In member function ‘[01m[Kvoid occupancyMap::updateMap(geometry_msgs::msg::TransformStamped, sensor_msgs::msg::LaserScan_<std::allocator<void> >::SharedPtr)[m[K’:
+[8.531s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:83:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Klong unsigned int[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[8.531s]    83 |     for (int i = 0; [01;35m[Ki <= sizeof(measurements->ranges)/sizeof(measurements->ranges[0])[m[K; i++){
+[8.531s]       |                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[8.542s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:78:13:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Krotation_matrix[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[8.542s]    78 |     matrix3 [01;35m[Krotation_matrix[m[K = matrix3::Identity();
+[8.542s]       |             [01;35m[K^~~~~~~~~~~~~~~[m[K
+[8.542s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:[m[K In member function ‘[01m[Kvoid occupancyMap::fillPoints(vectorType, vectorType, bool)[m[K’:
+[8.542s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:110:25:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>*)(& start))->Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::operator()(0)[m[K’ from ‘[01m[KEigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::Scalar[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[8.543s]   110 |     float x_start {[01;35m[Kstart(0)[m[K}, y_start {start(1)}, x_end {end(0)}, y_end {end(1)};
+[8.543s]       |                    [01;35m[K~~~~~^~~[m[K
+[8.543s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:110:45:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>*)(& start))->Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::operator()(1)[m[K’ from ‘[01m[KEigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::Scalar[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[8.543s]   110 |     float x_start {start(0)}, y_start {[01;35m[Kstart(1)[m[K}, x_end {end(0)}, y_end {end(1)};
+[8.543s]       |                                        [01;35m[K~~~~~^~~[m[K
+[8.543s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:110:61:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>*)(& end))->Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::operator()(0)[m[K’ from ‘[01m[KEigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::Scalar[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[8.543s]   110 |     float x_start {start(0)}, y_start {start(1)}, x_end {[01;35m[Kend(0)[m[K}, y_end {end(1)};
+[8.543s]       |                                                          [01;35m[K~~~^~~[m[K
+[8.543s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:110:77:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>*)(& end))->Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::operator()(1)[m[K’ from ‘[01m[KEigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::Scalar[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[8.543s]   110 |     float x_start {start(0)}, y_start {start(1)}, x_end {end(0)}, y_end {[01;35m[Kend(1)[m[K};
+[8.543s]       |                                                                          [01;35m[K~~~^~~[m[K
+[8.544s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:112:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kx_direction[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[8.544s]   112 |     int [01;35m[Kx_direction[m[K = (x_start < x_end) ? 1 : -1;
+[8.544s]       |         [01;35m[K^~~~~~~~~~~[m[K
+[8.544s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:123:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcuting_x_point[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[8.544s]   123 |     float [01;35m[Kcuting_x_point[m[K = {x_start/resolution};
+[8.544s]       |           [01;35m[K^~~~~~~~~~~~~~[m[K
+[8.544s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:[m[K In member function ‘[01m[Kvoid occupancyMap::addNonOccupiedOdd(int, int)[m[K’:
+[8.544s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:153:34:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(((float)y * ((occupancyMap*)this)->occupancyMap::map_width) + (float)x)[m[K’ from ‘[01m[Kfloat[m[K’ to ‘[01m[Kint[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[8.544s]   153 |     int index {[01;35m[Ky*this->map_width + x[m[K};
+[8.544s]       |                [01;35m[K~~~~~~~~~~~~~~~~~~^~~[m[K
+[8.544s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:[m[K In member function ‘[01m[Kvoid occupancyMap::addOccupiedOdd(int, int)[m[K’:
+[8.545s] [01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:160:34:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(((float)y * ((occupancyMap*)this)->occupancyMap::map_width) + (float)x)[m[K’ from ‘[01m[Kfloat[m[K’ to ‘[01m[Kint[m[K’ [[01;35m[K-Wnarrowing[m[K]
+[8.545s]   160 |     int index {[01;35m[Ky*this->map_width + x[m[K};
+[8.545s]       |                [01;35m[K~~~~~~~~~~~~~~~~~~^~~[m[K
+[15.798s] [100%] [32m[1mLinking CXX executable map_generation[0m
+[16.302s] /usr/bin/ld: warning: libconsole_bridge.so.1.0, needed by /opt/ros/foxy/lib/libtf2.so, may conflict with libconsole_bridge.so.0.4
+[16.311s] [100%] Built target map_generation
+[16.323s] Invoked command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation -- -j12 -l12
+[16.352s] Invoking command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation
+[16.362s] -- Install configuration: ""
+[16.362s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/lib/map_generation/map_generation
+[16.364s] -- Set runtime path of "/home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/lib/map_generation/map_generation" to ""
+[16.364s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation
+[16.364s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/ament_index/resource_index/package_run_dependencies/map_generation
+[16.364s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/ament_index/resource_index/parent_prefix_path/map_generation
+[16.365s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/environment/ament_prefix_path.sh
+[16.365s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/environment/ament_prefix_path.dsv
+[16.365s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/environment/path.sh
+[16.365s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/environment/path.dsv
+[16.365s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/local_setup.bash
+[16.365s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/local_setup.sh
+[16.365s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/local_setup.zsh
+[16.366s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/local_setup.dsv
+[16.366s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/package.dsv
+[16.366s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/ament_index/resource_index/packages/map_generation
+[16.366s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/cmake/map_generationConfig.cmake
+[16.366s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/cmake/map_generationConfig-version.cmake
+[16.366s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/package.xml
+[16.375s] Invoked command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation

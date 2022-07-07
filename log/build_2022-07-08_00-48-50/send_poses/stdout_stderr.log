@@ -1,0 +1,18 @@
+[100%] Built target send_poses
+-- Install configuration: ""
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/lib/send_poses/send_poses
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/ament_index/resource_index/package_run_dependencies/send_poses
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/ament_index/resource_index/parent_prefix_path/send_poses
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/environment/ament_prefix_path.sh
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/environment/path.sh
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/environment/path.dsv
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/local_setup.bash
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/local_setup.sh
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/local_setup.zsh
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/local_setup.dsv
+-- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/package.dsv
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/ament_index/resource_index/packages/send_poses
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/cmake/send_posesConfig.cmake
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/cmake/send_posesConfig-version.cmake
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/send_poses/share/send_poses/package.xml

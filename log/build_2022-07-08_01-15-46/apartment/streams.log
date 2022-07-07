@@ -1,0 +1,41 @@
+[0.078s] Invoking command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/apartment': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/pablo/Documents/robotic_sim/2_wheeled/build/apartment -- -j12 -l12
+[0.162s] Invoked command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/apartment' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/pablo/Documents/robotic_sim/2_wheeled/build/apartment -- -j12 -l12
+[0.195s] Invoking command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/apartment': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/pablo/Documents/robotic_sim/2_wheeled/build/apartment
+[0.208s] -- Install configuration: ""
+[0.208s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/launch
+[0.208s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/launch/world.launch.py
+[0.208s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/worlds
+[0.208s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/worlds/apartment.world
+[0.208s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models
+[0.208s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/desktop
+[0.209s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/desktop/meshes
+[0.209s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/desktop/meshes/desktop.stl
+[0.209s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/desktop/model.sdf
+[0.209s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/desktop/model.config
+[0.209s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/living_room_table
+[0.209s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/living_room_table/meshes
+[0.210s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/living_room_table/meshes/table.stl
+[0.210s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/living_room_table/model.sdf
+[0.210s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/living_room_table/model.config
+[0.210s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/apartment_p
+[0.210s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/apartment_p/meshes
+[0.214s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/apartment_p/meshes/desktop.stl
+[0.214s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/apartment_p/meshes/apartment.stl
+[0.215s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/apartment_p/model.sdf
+[0.217s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/models/apartment_p/model.config
+[0.217s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/ament_index/resource_index/package_run_dependencies/apartment
+[0.217s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/ament_index/resource_index/parent_prefix_path/apartment
+[0.218s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/environment/ament_prefix_path.sh
+[0.218s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/environment/ament_prefix_path.dsv
+[0.219s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/environment/path.sh
+[0.219s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/environment/path.dsv
+[0.219s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/local_setup.bash
+[0.220s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/local_setup.sh
+[0.221s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/local_setup.zsh
+[0.221s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/local_setup.dsv
+[0.221s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/package.dsv
+[0.221s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/ament_index/resource_index/packages/apartment
+[0.221s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/cmake/apartmentConfig.cmake
+[0.221s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/cmake/apartmentConfig-version.cmake
+[0.221s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/apartment/share/apartment/package.xml
+[0.250s] Invoked command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/apartment' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/pablo/Documents/robotic_sim/2_wheeled/build/apartment

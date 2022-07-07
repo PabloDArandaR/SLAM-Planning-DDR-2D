@@ -1,0 +1,42 @@
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/map_generation.cpp:[m[K In member function ‘[01m[Kvoid MapGenerator::laser_callback(sensor_msgs::msg::LaserScan_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/map_generation.cpp:105:74:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  105 |         void laser_callback([01;35m[Kconst sensor_msgs::msg::LaserScan::SharedPtr msg[m[K){
+      |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:7:31:[m[K [01;35m[Kwarning: [m[Kextra ‘[01m[K;[m[K’ [[01;35m[K-Wpedantic[m[K]
+    7 | occupancyMap::occupancyMap(){}[01;35m[K;[m[K
+      |                               [01;35m[K^[m[K
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:[m[K In member function ‘[01m[Kvoid occupancyMap::updateMap(geometry_msgs::msg::TransformStamped, sensor_msgs::msg::LaserScan_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:83:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Klong unsigned int[m[K’ [[01;35m[K-Wsign-compare[m[K]
+   83 |     for (int i = 0; [01;35m[Ki <= sizeof(measurements->ranges)/sizeof(measurements->ranges[0])[m[K; i++){
+      |                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:78:13:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Krotation_matrix[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+   78 |     matrix3 [01;35m[Krotation_matrix[m[K = matrix3::Identity();
+      |             [01;35m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:[m[K In member function ‘[01m[Kvoid occupancyMap::fillPoints(vectorType, vectorType, bool)[m[K’:
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:110:25:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>*)(& start))->Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::operator()(0)[m[K’ from ‘[01m[KEigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::Scalar[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  110 |     float x_start {[01;35m[Kstart(0)[m[K}, y_start {start(1)}, x_end {end(0)}, y_end {end(1)};
+      |                    [01;35m[K~~~~~^~~[m[K
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:110:45:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>*)(& start))->Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::operator()(1)[m[K’ from ‘[01m[KEigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::Scalar[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  110 |     float x_start {start(0)}, y_start {[01;35m[Kstart(1)[m[K}, x_end {end(0)}, y_end {end(1)};
+      |                                        [01;35m[K~~~~~^~~[m[K
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:110:61:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>*)(& end))->Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::operator()(0)[m[K’ from ‘[01m[KEigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::Scalar[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  110 |     float x_start {start(0)}, y_start {start(1)}, x_end {[01;35m[Kend(0)[m[K}, y_end {end(1)};
+      |                                                          [01;35m[K~~~^~~[m[K
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:110:77:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K((Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>*)(& end))->Eigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::operator()(1)[m[K’ from ‘[01m[KEigen::DenseCoeffsBase<Eigen::Matrix<double, 4, 1>, 1>::Scalar[m[K’ {aka ‘[01m[Kdouble[m[K’} to ‘[01m[Kfloat[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  110 |     float x_start {start(0)}, y_start {start(1)}, x_end {end(0)}, y_end {[01;35m[Kend(1)[m[K};
+      |                                                                          [01;35m[K~~~^~~[m[K
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:112:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kx_direction[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  112 |     int [01;35m[Kx_direction[m[K = (x_start < x_end) ? 1 : -1;
+      |         [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:123:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcuting_x_point[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  123 |     float [01;35m[Kcuting_x_point[m[K = {x_start/resolution};
+      |           [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:[m[K In member function ‘[01m[Kvoid occupancyMap::addNonOccupiedOdd(int, int)[m[K’:
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:153:34:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(((float)y * ((occupancyMap*)this)->occupancyMap::map_width) + (float)x)[m[K’ from ‘[01m[Kfloat[m[K’ to ‘[01m[Kint[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  153 |     int index {[01;35m[Ky*this->map_width + x[m[K};
+      |                [01;35m[K~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:[m[K In member function ‘[01m[Kvoid occupancyMap::addOccupiedOdd(int, int)[m[K’:
+[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/occupancy_map.cpp:160:34:[m[K [01;35m[Kwarning: [m[Knarrowing conversion of ‘[01m[K(((float)y * ((occupancyMap*)this)->occupancyMap::map_width) + (float)x)[m[K’ from ‘[01m[Kfloat[m[K’ to ‘[01m[Kint[m[K’ [[01;35m[K-Wnarrowing[m[K]
+  160 |     int index {[01;35m[Ky*this->map_width + x[m[K};
+      |                [01;35m[K~~~~~~~~~~~~~~~~~~^~~[m[K
+/usr/bin/ld: warning: libconsole_bridge.so.1.0, needed by /opt/ros/foxy/lib/libtf2.so, may conflict with libconsole_bridge.so.0.4

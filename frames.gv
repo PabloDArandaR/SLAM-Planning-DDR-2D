@@ -1,0 +1,13 @@
+digraph G {
+"body" -> "camera_L"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"camera_L" -> "camera_R"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"body" -> "laz_base"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"body" -> "caster"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"laz_base" -> "laz_rot"[label=" Broadcaster: default_authority\nAverage rate: 20.206\nBuffer length: 4.85\nMost recent transform: 350.855\nOldest transform: 346.005\n"];
+"body" -> "wheel_L"[label=" Broadcaster: default_authority\nAverage rate: 20.206\nBuffer length: 4.85\nMost recent transform: 350.855\nOldest transform: 346.005\n"];
+"body" -> "wheel_R"[label=" Broadcaster: default_authority\nAverage rate: 20.206\nBuffer length: 4.85\nMost recent transform: 350.855\nOldest transform: 346.005\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1657235981.8490465"[ shape=plaintext ] ;
+}->"body";
+}

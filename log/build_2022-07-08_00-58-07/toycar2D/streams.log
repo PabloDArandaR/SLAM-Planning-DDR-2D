@@ -1,0 +1,33 @@
+[0.061s] Invoking command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/toycar2D': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/pablo/Documents/robotic_sim/2_wheeled/build/toycar2D -- -j12 -l12
+[0.112s] Invoked command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/toycar2D' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/pablo/Documents/robotic_sim/2_wheeled/build/toycar2D -- -j12 -l12
+[0.146s] Invoking command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/toycar2D': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/pablo/Documents/robotic_sim/2_wheeled/build/toycar2D
+[0.157s] -- Install configuration: ""
+[0.157s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/launch
+[0.158s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/launch/world.launch.py
+[0.158s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/launch/spawn.launch.py
+[0.158s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/meshes
+[0.158s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/meshes/low_part.stl
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/meshes/caster.stl
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/meshes/wheel.stl
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/urdf
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/urdf/toy.urdf.xacro
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/urdf/gazebo.xacro
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/urdf/ray_scanner.xacro
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/worlds
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/worlds/world.world
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/ament_index/resource_index/package_run_dependencies/toycar2D
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/ament_index/resource_index/parent_prefix_path/toycar2D
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/environment/ament_prefix_path.sh
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/environment/ament_prefix_path.dsv
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/environment/path.sh
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/environment/path.dsv
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/local_setup.bash
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/local_setup.sh
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/local_setup.zsh
+[0.159s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/local_setup.dsv
+[0.160s] -- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/package.dsv
+[0.160s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/ament_index/resource_index/packages/toycar2D
+[0.160s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/cmake/toycar2DConfig.cmake
+[0.160s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/cmake/toycar2DConfig-version.cmake
+[0.160s] -- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/toycar2D/share/toycar2D/package.xml
+[0.165s] Invoked command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/toycar2D' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/pablo/Documents/robotic_sim/2_wheeled/build/toycar2D

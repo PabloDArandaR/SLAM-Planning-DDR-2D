@@ -1,0 +1,2 @@
+source;share/send_poses/environment/ament_prefix_path.sh
+source;share/send_poses/environment/path.sh

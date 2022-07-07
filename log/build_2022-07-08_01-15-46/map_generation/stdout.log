@@ -1,0 +1,23 @@
+[35m[1mScanning dependencies of target map_generation[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/map_generation.dir/src/map_generation.cpp.o[0m
+[ 66%] [32m[1mLinking CXX executable map_generation[0m
+[100%] Built target map_generation
+-- Install configuration: ""
+-- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/lib/map_generation/map_generation
+-- Set runtime path of "/home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/lib/map_generation/map_generation" to ""
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/ament_index/resource_index/package_run_dependencies/map_generation
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/ament_index/resource_index/parent_prefix_path/map_generation
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/environment/ament_prefix_path.sh
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/environment/path.sh
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/environment/path.dsv
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/local_setup.bash
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/local_setup.sh
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/local_setup.zsh
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/local_setup.dsv
+-- Installing: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/package.dsv
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/ament_index/resource_index/packages/map_generation
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/cmake/map_generationConfig.cmake
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/cmake/map_generationConfig-version.cmake
+-- Up-to-date: /home/pablo/Documents/robotic_sim/2_wheeled/install/map_generation/share/map_generation/package.xml
