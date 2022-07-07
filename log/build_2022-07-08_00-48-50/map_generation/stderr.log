@@ -1,5 +1,0 @@
-[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/map_generation.cpp:[m[K In member function ‘[01m[Kvoid MapGenerator::laser_callback(sensor_msgs::msg::LaserScan_<std::allocator<void> >::SharedPtr)[m[K’:
-[01m[K/home/pablo/Documents/robotic_sim/2_wheeled/src/map_generation/src/map_generation.cpp:108:74:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K-Wunused-parameter[m[K]
-  108 |         void laser_callback([01;35m[Kconst sensor_msgs::msg::LaserScan::SharedPtr msg[m[K){
-      |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
-/usr/bin/ld: warning: libconsole_bridge.so.1.0, needed by /opt/ros/foxy/lib/libtf2.so, may conflict with libconsole_bridge.so.0.4

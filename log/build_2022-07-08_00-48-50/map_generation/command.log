@@ -1,4 +1,0 @@
-Invoking command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation -- -j12 -l12
-Invoked command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation -- -j12 -l12
-Invoking command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation
-Invoked command in '/home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/pablo/Documents/robotic_sim/2_wheeled/build/map_generation

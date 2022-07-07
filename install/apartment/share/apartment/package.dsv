@@ -1,8 +1,0 @@
-source;share/apartment/hook/cmake_prefix_path.ps1
-source;share/apartment/hook/cmake_prefix_path.dsv
-source;share/apartment/hook/cmake_prefix_path.sh
-source;share/apartment/local_setup.bash
-source;share/apartment/local_setup.dsv
-source;share/apartment/local_setup.ps1
-source;share/apartment/local_setup.sh
-source;share/apartment/local_setup.zsh
