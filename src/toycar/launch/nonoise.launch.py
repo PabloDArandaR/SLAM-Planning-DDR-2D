@@ -30,9 +30,8 @@ def generate_launch_description():
         output='screen'
     )
 
-
     # Run the node
     return LaunchDescription([
-        basic_launch,
-        transform_generator
+        transform_generator,
+        basic_launch
     ])
