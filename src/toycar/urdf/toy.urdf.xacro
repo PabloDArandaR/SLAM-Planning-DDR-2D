@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="toycar">
 
-    <!-- <xacro:include filename="$(find toycar)/urdf/ray_scanner.xacro"/> -->
     <xacro:include filename="$(find toycar)/urdf/ray_scanner.xacro"/>
 
     <!--LINKS-->
@@ -109,9 +108,10 @@
         <origin xyz="0.2 0.075 -0.01" rpy="0.0 0.0 3.141592"/>
     </joint>
 
-    <xacro:include filename="cameras.xacro"/>
-    <xacro:include filename="pose.xacro"/>
-    <xacro:include filename="differential_drive.xacro"/>
+    <!-- <xacro:include filename="cameras.xacro"/> -->
+    <!-- <xacro:include filename="pose.xacro"/>
+    <xacro:include filename="differential_drive.xacro"/> -->
     <xacro:include filename="joints_control.xacro"/>
+    <xacro:include filename="gazebo.xacro"/>
 
 </robot>
