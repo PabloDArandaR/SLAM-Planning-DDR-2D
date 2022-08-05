@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+    <model name="apartment_p">
+        <static> true </static>
+        <pose> 0 0 0 0 0 0 </pose>
+        <link name="base">
+            <visual name="apartment">
+                <geometry>
+                    <mesh><uri> model://apartment_p/meshes/apartment.stl </uri></mesh>
+                </geometry>
+            </visual>
+        </link>
+    </model>
+</sdf>

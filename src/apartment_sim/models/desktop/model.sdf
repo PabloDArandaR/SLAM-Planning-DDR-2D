@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+    <model name="desktop">
+        <static> true </static>
+        <pose> 0 0 0 0 0 0 </pose>
+        <link name="base">
+            <visual name="desktop">
+                <geometry>
+                    <mesh><uri> model://desktop/meshes/desktop.stl </uri></mesh>
+                </geometry>
+            </visual>
+        </link>
+    </model>
+</sdf>
