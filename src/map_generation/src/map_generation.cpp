@@ -29,9 +29,9 @@ class MapGenerator: public rclcpp::Node
         MapGenerator(): rclcpp::Node("map_generator")
         {
             std::cout << "Pre-declaration" << std::endl;
-            this->declare_parameter("resolution");
-            this->declare_parameter("width");
-            this->declare_parameter("height");
+            this->declare_parameter("resolution", 0.01);
+            this->declare_parameter("width", 10);
+            this->declare_parameter("height", 10);
             std::cout << "After declaration" << std::endl;
 
             // Map related parameters and publisher
