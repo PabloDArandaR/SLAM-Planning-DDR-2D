@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<root main_tree_to_execute="BehaviorTree">
+    <!-- ////////// -->
+    <BehaviorTree ID="BehaviorTree">
+        <Fallback>
+            <Condition ID="new_objective"/>
+            <Sequence>
+                <Action ID="update_objective"/>
+                <Action ID="generate_path"/>
+                <Action ID="follow_path"/>
+            </Sequence>
+        </Fallback>
+    </BehaviorTree>
+    <!-- ////////// -->
+    <TreeNodesModel>
+        <Action ID="follow_path"/>
+        <Action ID="generate_path"/>
+        <Condition ID="new_objective"/>
+        <Action ID="update_objective"/>
+    </TreeNodesModel>
+    <!-- ////////// -->
+</root>
