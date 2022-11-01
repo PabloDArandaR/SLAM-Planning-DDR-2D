@@ -1,8 +1,18 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="toycar">
 
+    <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0"/>
+    </material>
+    <material name="white">
+        <color rgba="1.0 1.0 1.0 1.0"/>
+    </material>
+    <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+    </material>
+
     <!--LINKS for the geometry of the robot-->
-    <!-- <link name="base_link"></link> -->
+    <link name="base_link"></link>
 
     <link name="body">
         <inertial>
@@ -13,13 +23,17 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 1.57"/>
             <geometry>
-                <mesh filename="$(find apartment_sim)/robot_models/toycar/meshes/low_part.stl" scale="1 1 1"/>
+                <mesh filename="file://$(find apartment_sim)/robot_models/toycar/meshes/low_part.stl" scale="1 1 1"/>
             </geometry>
+            <material name="">
+                <color
+                    rgba="1.0 1.0 1.0 1" />
+            </material>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 1.57"/>
             <geometry>
-                <mesh filename="$(find apartment_sim)/robot_models/toycar/meshes/low_part.stl" scale="1 1 1"/>
+                <mesh filename="file://$(find apartment_sim)/robot_models/toycar/meshes/low_part.stl" scale="1 1 1"/>
             </geometry>
         </collision>
     </link>
@@ -33,13 +47,14 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0 0.0 0.0"/>
             <geometry>
-                <mesh filename="$(find apartment_sim)/robot_models/toycar/meshes/wheel.stl" scale="1 1 1" />
+                <mesh filename="file://$(find apartment_sim)/robot_models/toycar/meshes/wheel.stl" scale="1 1 1" />
             </geometry>
+            <material name="blue"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0.0 0.0"/>
             <geometry>
-                <mesh filename="$(find apartment_sim)/robot_models/toycar/meshes/wheel.stl" scale="1 1 1" />
+                <mesh filename="file://$(find apartment_sim)/robot_models/toycar/meshes/wheel.stl" scale="1 1 1" />
             </geometry>
         </collision>
     </link>
@@ -53,13 +68,14 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0 0.0 0.0"/>
             <geometry>
-                <mesh filename="$(find apartment_sim)/robot_models/toycar/meshes/wheel.stl" scale="1 1 1" />
+                <mesh filename="file://$(find apartment_sim)/robot_models/toycar/meshes/wheel.stl" scale="1 1 1" />
             </geometry>
+            <material name="blue"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0.0 0.0"/>
             <geometry>
-                <mesh filename="$(find apartment_sim)/robot_models/toycar/meshes/wheel.stl" scale="1 1 1" />
+                <mesh filename="file://$(find apartment_sim)/robot_models/toycar/meshes/wheel.stl" scale="1 1 1" />
             </geometry>
         </collision>
     </link>
@@ -73,19 +89,25 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0 0.0 0.0"/>
             <geometry>
-                <mesh filename="$(find apartment_sim)/robot_models/toycar/meshes/caster.stl" scale="1 1 1" />
+                <mesh filename="file://$(find apartment_sim)/robot_models/toycar/meshes/caster.stl" scale="1 1 1" />
             </geometry>
+            <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0.0 0.0"/>
             <geometry>
-                <mesh filename="$(find apartment_sim)/robot_models/toycar/meshes/caster.stl" scale="1 1 1" />
+                <mesh filename="file://$(find apartment_sim)/robot_models/toycar/meshes/caster.stl" scale="1 1 1" />
             </geometry>
         </collision>
     </link>
     
 
     <!--JOINTS for the geometry of the robot-->
+    <joint name="joint_body" type="fixed">
+        <parent link="base_link"/>
+        <child link="body"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </joint>
 
     <joint name="joint_wheel_L" type="continuous">
         <parent link="body"/>
@@ -93,6 +115,7 @@
         <origin xyz="0.05 0.156 0.015" rpy="0.0 0.0 0.0"/>
         <axis xyz="0.0 1.0 0.0"/>
     </joint>
+
 
     <joint name="joint_wheel_R" type="continuous">
         <parent link="body"/>
@@ -107,277 +130,23 @@
         <origin xyz="0.2 0.075 -0.01" rpy="0.0 0.0 3.141592"/>
     </joint>
 
-    <!-- ############################################################################################################################################# -->
-    <!-- ############################################################################################################################################# -->
     <!-- RAYS SCANNER -->
+    <xacro:include filename="$(find apartment_sim)/robot_models/toycar/sensors/ray_scanner.xacro"/>
 
-    <link name="laser_frame">
-        <inertial>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
-            <mass value="0"/>
-            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
-        </inertial>
-    </link>
+    <!-- Cameras -->
+    <!-- <xacro:include filename="$(find apartment_sim)/robot_models/toycar/sensors/camera_R.xacro"/>
+    <xacro:include filename="$(find apartment_sim)/robot_models/toycar/sensors/camera_L.xacro"/> -->
 
-    <joint name="joint_laser" type="fixed">
-        <parent link="body"/>
-        <child link="laser_frame"/>
-        <origin xyz="0.2 0.1 0.1" rpy="0.0 0.0 0.0"/>
-    </joint>
-
-    <gazebo reference="laser_frame">
-        <sensor name="laser" type="gpu_ray">
-            <pose> 0 0 0 0 0 0 </pose>
-            <visualize> true </visualize>
-            <update_rate> 10 </update_rate>
-            <ray>
-                <scan>
-                    <horizontal>
-                        <samples> 150 </samples>
-                        <min_angle> -1 </min_angle>
-                        <max_angle> 1 </max_angle>
-                    </horizontal>
-                </scan>
-                <range>
-                    <min> 0.3 </min>
-                    <max> 15 </max>
-                    <resolution> 0.01 </resolution>
-                </range>
-            </ray>
-            <plugin name="laser_controller" filename="libgazebo_ros_gpu_laser.so">
-                <ros>
-                    <argument> ~/out:=scan</argument>
-                </ros>
-                <output_type>sensor_msgs/LaserScan</output_type>
-                <frame_name>laser_frame</frame_name>
-            </plugin>
-        </sensor>
-    </gazebo>
-
-    <!-- ############################################################################################################################################# -->
-    <!-- ############################################################################################################################################# -->
-    <!-- CAMERA -->
-
-    <!-- Links for the camera -->
-
-    <link name="camera_L"></link>
-    <link name="camera_R"></link> 
-
-    <!-- Joints for the camera -->
-
-    <joint name="camera_L_joint" type="fixed">
-        <axis xyz="0.0 1.0 0.0"/>
-        <origin xyz="0.25 0.076 0.03" rpy="0.0 0.0 0.0"/>
-        <parent link="body"/>
-        <child link="camera_L"/>
-    </joint>
-    <joint name="camera_R_joint" type="fixed">
-        <axis xyz="0.0 1.0 0.0"/>
-        <origin xyz="0.0 -0.002 0.0" rpy="0.0 0.0 0.0"/>
-        <parent link="camera_L"/>
-        <child link="camera_R"/>
-    </joint>
-
-    <!-- Gazebo Left Camara Sensor-->
-
-    <gazebo reference="camera_L">
-    <sensor type="camera" name="camera_L">
-      <update_rate>30.0</update_rate>
-      <visualize>true</visualize>
-      <camera name="head">
-        <horizontal_fov>1.3962634</horizontal_fov>
-        <image>
-          <width>800</width>
-          <height>800</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.02</near>
-          <far>300</far>
-        </clip>
-        <noise>
-          <type>gaussian</type>
-          <mean>0.0</mean>
-          <stddev>0.0</stddev>
-        </noise>
-      </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-        <alwaysOn>true</alwaysOn>
-        <updateRate>30.0</updateRate>
-        <cameraName>toycar/camera_L</cameraName>
-        <imageTopicName>image_raw_L</imageTopicName>
-        <cameraInfoTopicName>camera_info_L</cameraInfoTopicName>
-        <frameName>camera_L</frameName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-      </plugin>
-    </sensor>
-    </gazebo>
-
-    
-    <!-- Gazebo Right Camara Sensor-->
-    <gazebo reference="camera_R">
-    <sensor type="camera" name="camera_R">
-      <update_rate>30.0</update_rate>
-      <visualize>true</visualize>
-      <camera name="head">
-        <horizontal_fov>1.3962634</horizontal_fov>
-        <image>
-          <width>800</width>
-          <height>800</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.02</near>
-          <far>300</far>
-        </clip>
-        <noise>
-          <type>gaussian</type>
-          <mean>0.0</mean>
-          <stddev>0.0</stddev>
-        </noise>
-      </camera>
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-        <alwaysOn>true</alwaysOn>
-        <updateRate>0.0</updateRate>
-        <cameraName>toycar/camera_R</cameraName>
-        <imageTopicName>image_raw_R</imageTopicName>
-        <cameraInfoTopicName>camera_info_R</cameraInfoTopicName>
-        <frameName>camera_R</frameName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-      </plugin>
-    </sensor>
-    </gazebo>
-
-    <!-- ############################################################################################################################################# -->
-    <!-- ############################################################################################################################################# -->
     <!-- POSE AND LOCALIZATION -->
+    <!-- <xacro:include filename="$(find apartment_sim)/robot_models/toycar/sensors/p3d.xacro"/> -->
 
-    <!-- Gazebo P3D-->
-    <gazebo>
-        <plugin name="libgazebo_ros_p3d" filename="libgazebo_ros_p3d.so">
-            <topicName>body_pose_ground_truth </topicName>
-            <frame_name>map</frame_name>
-            <body_name>body</body_name>
-            <update_rate>200.0</update_rate>
-            <gaussian_noise>0.01</gaussian_noise>
-        </plugin>
-    </gazebo>
-
-
-    <!-- ############################################################################################################################################# -->
-    <!-- ############################################################################################################################################# -->
     <!-- DIFFERENTIAL DRIVE -->
+    <!-- <xacro:include filename="$(find apartment_sim)/robot_models/toycar/desc/diff_drive.xacro"/> -->
 
-    <gazebo>
-      <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-
-        <!-- Plugin update rate in Hz -->
-        <update_rate>10</update_rate>
-
-        <!-- Name of left joint, defaults to `left_joint` -->
-        <left_joint>joint_wheel_L</left_joint>
-
-        <!-- Name of right joint, defaults to `right_joint` -->
-        <right_joint>joint_wheel_R</right_joint>
-
-        <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
-        <wheel_separation>0.142</wheel_separation>
-
-        <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
-        <wheel_diameter>0.045</wheel_diameter>
-
-        <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
-        <wheelAcceleration>0.8</wheelAcceleration>
-
-        <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
-        <wheelTorque>10</wheelTorque>
-
-      
-        <!-- Odometry frame, defaults to `odom` -->
-        <odometry_frame>odom_diff_drive</odometry_frame>
-
-        <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
-        <robotBaseFrame>base_footprint</robotBaseFrame>
-
-        <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
-        <odometrySource>1</odometrySource>
-
-        <!-- Set to true to publish transforms for the wheel links, defaults to false -->
-        <publishWheelTF>true</publishWheelTF>
-        
-        <publishOdom>true</publishOdom>
-
-        <!-- Set to true to publish transforms for the odometry, defaults to true -->
-        <publish_odom>true</publish_odom>
-
-        <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
-        <publishWheelJointState>true</publishWheelJointState>
-
-        <!-- Set to true to swap right and left wheels, defaults to true -->
-        <legacyMode>false</legacyMode>
-        
-        <max_wheel_torque>200</max_wheel_torque>
-        <max_acceleration>3.0</max_acceleration>
-      </plugin>
-    </gazebo>
-
-
-    <!-- ############################################################################################################################################# -->
-    <!-- ############################################################################################################################################# -->
     <!-- JOINT STATE PUBLISHER -->
+    <xacro:include filename="$(find apartment_sim)/robot_models/toycar/desc/joint_state.xacro"/>
 
-    <gazebo>
-        <plugin name="gazebo_ros_joint_state_publisher"
-            filename="libgazebo_ros_joint_state_publisher.so">
-            <update_rate>20</update_rate>
-            <joint_name>joint_wheel_L</joint_name>
-            <joint_name>joint_wheel_R</joint_name>
-            <joint_name>joint_rotational_2d_lidar</joint_name>
-        </plugin>
-    </gazebo>
-
-
-    <!-- ############################################################################################################################################# -->
-    <!-- ############################################################################################################################################# -->
     <!-- GAZEBO VALUES -->
-
-    <gazebo reference="body">
-        <material>Gazebo/White</material>
-        <turnGravityOff>false</turnGravityOff>
-    </gazebo>
-
-    <gazebo reference="wheel_L">
-        <mu1 value="3.0"/>
-        <mu2 value="4.0"/>
-        <kp value="10000000.0"/>
-        <kd value="1.0"/>
-        <fdir1 value="1 0 0"/>
-        <material>Gazebo/Grey</material>
-        <turnGravityOff>false</turnGravityOff>
-    </gazebo>
-
-    <gazebo reference="wheel_R">
-        <mu1 value="1.0"/>
-        <mu2 value="1.0"/>
-        <kp value="10000000.0"/>
-        <kd value="1.0"/>
-        <fdir1 value="1 0 0"/>
-        <material>Gazebo/Grey</material>
-        <turnGravityOff>false</turnGravityOff>
-    </gazebo>
-
-    <gazebo reference="caster">
-        <turnGravityOff>false</turnGravityOff>
-    </gazebo>
+    <!-- <xacro:include filename="$(find apartment_sim)/robot_models/toycar/desc/gazebo.xacro"/> -->
 
 </robot>
