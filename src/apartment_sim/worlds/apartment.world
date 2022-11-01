@@ -28,7 +28,7 @@
 
     <include>
       <pose>0 0 0 0 0 0</pose>
-      <uri>model://apartment_p</uri>
+      <uri>model://apartment_simp</uri>
     </include>
 
   </world>
