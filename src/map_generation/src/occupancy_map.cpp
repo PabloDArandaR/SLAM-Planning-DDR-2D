@@ -1,5 +1,5 @@
 #include "map_generation/occupancy_map.hpp"
-
+#include <algorithm>
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setup the map constructors
@@ -72,13 +72,22 @@ void occupancyMap::setupProbabilities(float initial_probability, float true_posi
 
 }
 
+// Auxiliar functions
+
+float inline occupancyMap::intersection(float b, float m, float query){
+    return m*query + b;
+}
+
+int inline occupancyMap::getIndex(int x, int y){
+    return this->map_width*x + y;
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Updating map
 
 void occupancyMap::updateMap(geometry_msgs::msg::TransformStamped laser_scanner_pose, sensor_msgs::msg::LaserScan::SharedPtr measurements){
     bool endpoint_occupied {false};
-    matrix3 rotation_matrix = matrix3::Identity();
     vectorType start_pos_vector, end_pos_vector;
     matrix4 T;
 
@@ -109,62 +118,50 @@ void occupancyMap::updateMap(geometry_msgs::msg::TransformStamped laser_scanner_
     }
 }
 
-void occupancyMap::fillPoints(vectorType start, vectorType end, bool endpoint){
+void occupancyMap::fillPoints(vectorType start, vectorType end, bool endpoint_occupied){
     double x_start {start(0)}, y_start {start(1)}, x_end {end(0)}, y_end {end(1)};
-    double m {(y_end - y_start)/(x_end - x_start)}, b {(y_end - m*x_end)/this->resolution};
+    double m {(y_end - y_start)/((x_end - x_start) * this->resolution)}, b {(y_end/this->resolution - m*x_end)};
     int x_direction = (x_start < x_end) ? 1 : -1;
-    int y_direction = (y_start < y_end) ? 1 : -1;
+    //int y_direction = (y_start < y_end) ? 1 : -1;
 
     // Find the corners that delimit the starting and ending cells in the grid
-    int corner_x_start = (int)(x_start/this->resolution);
-    int corner_x_end = (int)(x_end/this->resolution);
-    int corner_y_end = (int)(y_end/this->resolution);
-    int corner_y_start = (int)(y_start/this->resolution);
-    int corner_x = corner_x_start;
-    int corner_y = corner_y_start;
+    // TODO: initialize based on the center
+    int corner_x_start = (int)(x_start/this->resolution + this->origin_x);
+    int corner_x_end = (int)(x_end/this->resolution + this->origin_x);
+    int corner_y_end = (int)(y_end/this->resolution + this->origin_y);
+    int corner_y_start = (int)(y_start/this->resolution + this->origin_y);
 
-    double cuting_x_point = {x_start/resolution};
-    int corner_x_cuting_cell {0};
-    int index {0};
+    int n_elements {abs((int)ceil(std::fmax<double>(corner_x_start, corner_x_end)) -
+                        (int)floor(std::fmin<double>(corner_x_start, corner_x_end)))};
+    std::vector<double> x_vals(n_elements, 0.0f);
+    x_vals[0] = corner_x_start; x_vals[n_elements-1] = corner_x_end;
+    std::vector<double> y_vals(n_elements, 0.0f);
+    y_vals[0] = corner_y_start; y_vals[n_elements-1] = corner_y_end;
 
-    // TODO: Correct so it takes into consideration the direction of the motion(positive/negative x/y in the update of the odds)
-    // Iterate through each y-values between the start and the end except for the last one that needs to be handle accordingly depending on the existance of an obstacle or not
-    if ((x_start != x_end) & (y_start != y_end)){
-        //std::cout << "####################################################################################" << std::endl;
-        //std::cout << "x,y start are: ("<< x_start << "," << y_start << ")" << std::endl;
-        //std::cout << "x,y end are:   ("<< x_end << "," << y_end << ")" << std::endl;
-        //std::cout << "corner x,y start are:   ("<< corner_x_start << "," << corner_y_start << ")" << std::endl;
-        //std::cout << "corner x,y end are:   ("<< corner_x_end << "," << corner_y_end << ")" << std::endl;
-        //std::cout << "Length of the map vector is: " << this->probability_map->size() << std::endl;
-        //std::cout << "Max val of iter: " << abs(corner_y_end - corner_y_start) << std::endl;
-        //for (int i = 0; i < abs(corner_y_end - corner_y_start); i++){
-        //    corner_y += y_direction;
-        //    corner_x_cuting_cell = (int)((corner_y - b)/m);
-        //    for (int j = 0; j <= (corner_x_cuting_cell - corner_x); j++){
-        //        index = (corner_y-1)*this->map_width + corner_x + j;
-        //        std::cout << "Index is : " << index << std::endl;
-        //        this->addNonOccupiedOdd(index);
-        //    }
-        //    corner_x = corner_x_cuting_cell;
-        //}
-        // If the endpoint is occupied, update it with the addOccupiedOdd method, else, do a normal iteration
-        // Done at the end because the first value of the row is not known
-        //std::cout << "Corner x is: " << corner_x << std::endl;
-        //for (int i = 0; i < (corner_x_end - corner_x) - 1; i++){
-        //    index = corner_y*this->map_width + corner_x + i;
-        //    std::cout << "Index is : " << index << std::endl;
-        //    this->addNonOccupiedOdd(index);
-        //}
-        //if (endpoint){
-        //    index = corner_y_end*this->map_width + corner_x_end;
-        //    std::cout << "Index is : " << index << std::endl;
-        //    this->addOccupiedOdd(index);
-        //}
-        //else{
-        //    index = corner_y_end*this->map_width + corner_x_end;
-        //    std::cout << "Index is : " << index << std::endl;
-        //    this->addNonOccupiedOdd(index);
-        //}
+    int loop_start = corner_x_end > corner_x_start ? ceil(corner_x_start) : floor(corner_x_start);
+    int loop_end = corner_x_end > corner_x_start ? floor(corner_x_end) : ceil(corner_x_end);
+    int count{0};
+    for (int i = loop_start ; i != loop_end; i = i + x_direction){
+        x_vals[count + 1] = i;
+        y_vals[count + 1] = this->intersection(b, m, i);
+    }
+    
+    // Fill the map with non occupied points and occipied points (until the last - 1 point of x)
+    for (int i = 0; i < n_elements - 2; i ++){
+        for (int j = floor(y_vals[i]); j <= floor(y_vals[i + 1]); j++){
+            this->addNonOccupiedOdd(this->getIndex(floor(x_vals[i]), j));
+        }
+    }
+    if(endpoint_occupied){
+        for (int j = floor(y_vals[n_elements-2]); j <= floor(y_vals[n_elements-1]) - 1; j++) {
+            this->addNonOccupiedOdd(this->getIndex(floor(x_vals[n_elements - 1]), j));
+        }
+        this->addOccupiedOdd(this->getIndex(floor(x_vals[n_elements-1]), floor(y_vals[n_elements-1])));
+    }
+    else{
+        for (int j = floor(y_vals[n_elements-2]); j <= floor(y_vals[n_elements-1]); j++) {
+            this->addNonOccupiedOdd(this->getIndex(floor(x_vals[n_elements - 1]), j));
+        }
     }
 }
 

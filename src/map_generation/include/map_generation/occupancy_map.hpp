@@ -47,5 +47,7 @@ class occupancyMap{
         void fillPoints(vectorType start, vectorType end, bool endpoint);
         void addOccupiedOdd(int );
         void addNonOccupiedOdd(int );
+        int getIndex(int, int);
+        float intersection(float, float, float);
         
 };
