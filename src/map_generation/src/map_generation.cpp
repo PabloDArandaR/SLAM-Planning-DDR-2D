@@ -3,10 +3,12 @@
 #include <chrono>
 
 #include <rclcpp/rclcpp.hpp>
+#include "rclcpp/time.hpp"
 
 #include "sensor_msgs/msg/laser_scan.hpp"
 #include "nav_msgs/msg/map_meta_data.hpp"
 #include "nav_msgs/msg/occupancy_grid.hpp"
+#include "map_msgs/msg/occupancy_grid_update.hpp"
 #include "geometry_msgs/msg/pose.hpp"
 #include "geometry_msgs/msg/transform_stamped.hpp"
 #include "tf2_ros/static_transform_broadcaster.h"
@@ -22,27 +24,37 @@ int a = 10;
 
 using std::placeholders::_1;
 using namespace std::chrono_literals;
+using namespace std::chrono;
+
 
 class MapGenerator: public rclcpp::Node
 {
     public:
         MapGenerator(): rclcpp::Node("map_generator")
         {
-            std::cout << "Pre-declaration" << std::endl;
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Map parameters declaration
+
+            // Declaring the parameters
+            RCLCPP_INFO(this->get_logger(), "Declaring the parameters");
             this->declare_parameter("resolution", 0.01);
-            this->declare_parameter("width", 10);
-            this->declare_parameter("height", 10);
-            std::cout << "After declaration" << std::endl;
+            this->declare_parameter("width", 10.0);
+            this->declare_parameter("height", 10.0);
 
             // Map related parameters and publisher
+            RCLCPP_INFO(this->get_logger(), "Gettinging the parameters");
             rclcpp::Parameter param_resolution = this->get_parameter("resolution");
             rclcpp::Parameter param_width = this->get_parameter("width");
             rclcpp::Parameter param_height = this->get_parameter("height");
-            std::cout << "After getting the parameters" << std::endl;
+            RCLCPP_INFO(this->get_logger(), "resolution: %s, width: %s, height: %s",
+                param_resolution.value_to_string().c_str(),
+                param_width.value_to_string().c_str(),
+                param_height.value_to_string().c_str());
+
+            RCLCPP_INFO(this->get_logger(), "converting parameters to values");
             this->resolution = (float)param_resolution.as_double();
             this->height = (float)param_height.as_double();
             this->width = (float)param_width.as_double();
-            std::cout << "After writing the parameters" << std::endl;
             RCLCPP_INFO(this->get_logger(), "resolution: %s, width: %s, height: %s",
                 param_resolution.value_to_string().c_str(),
                 param_width.value_to_string().c_str(),
@@ -51,10 +63,11 @@ class MapGenerator: public rclcpp::Node
             
             this->map_height = this->height/this->resolution;
             this->map_width = this->width/this->resolution;
-            std::cout << "Input height: " << this->height << std::endl;
-            std::cout << "Input width: " << this->width << std::endl;
-            std::cout << "Input resolution: " << this->resolution << std::endl;
             
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Occupancy map declaration
+
             this->prob_map = occupancyMap();
             
             this->prob_map.setupMap(this->map_width, this->map_height);
@@ -66,26 +79,38 @@ class MapGenerator: public rclcpp::Node
             this->prob_map.setupSensorAngleIncrement(0.2);
             this->prob_map.initializeVectors();
 
-            this->prob_map.setupProbabilities(0.5, 0.8, 0.9);
+            this->prob_map.setupProbabilities(0, 0.8, 0.9);
 
-            // Map publisher
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Publishers and subscribers
+
+            // Publishers
             this->publisher_map = this->create_publisher<nav_msgs::msg::OccupancyGrid>("/map", 10);
-
-            // Generate the transform from the map to the robot
-            this->map_origin.position.x = 0.0; this->map_origin.position.y = 0.0; this->map_origin.position.z = 0.0;
-            this->map_origin.orientation.x = 0.0; this->map_origin.orientation.y = 0.0; this->map_origin.orientation.z = 0.0; this->map_origin.orientation.w = 1.0;
-
-            this->map_metadata.resolution = this->resolution;
-            this->map_metadata.width = this->width;
-            this->map_metadata.height = this->height;
-            this->map_metadata.origin = this->map_origin;
+            this->publisher_update = this->create_publisher<map_msgs::msg::OccupancyGridUpdate>("/map_updates", 10);
 
             // Add listener of transforms
             this->tf_buffer = std::make_unique<tf2_ros::Buffer>(this->get_clock());
             this->tf_listener = std::make_shared<tf2_ros::TransformListener>(*tf_buffer);
 
             // Subcribers
-            this->subscription_laser = this->create_subscription<sensor_msgs::msg::LaserScan>("/scan/out", 10, std::bind(&MapGenerator::laser_callback, this, _1));
+            this->subscription_laser = this->create_subscription<sensor_msgs::msg::LaserScan>("/laser_controller/out", 10, std::bind(&MapGenerator::laser_callback, this, _1));
+
+            // Timers
+            this->timer_ = this->create_wall_timer(500ms, std::bind(&MapGenerator::send_callback, this));
+
+            // Generate the transform from the map to the robot
+            this->map_origin.position.x = 0.0; this->map_origin.position.y = 0.0; this->map_origin.position.z = 0.0;
+            this->map_origin.orientation.x = 0.0; this->map_origin.orientation.y = 0.0; this->map_origin.orientation.z = 0.0; this->map_origin.orientation.w = 1.0;
+
+            this->map_metadata.map_load_time = this->get_clock().get()->now();
+            this->map_metadata.resolution = this->resolution;
+            this->map_metadata.width = this->width;
+            this->map_metadata.height = this->height;
+            this->map_metadata.origin = this->map_origin;
+
+            nav_msgs::msg::OccupancyGrid::SharedPtr initial_map = this->fillMapMessage();
+            this->publisher_map->publish(*initial_map);
 
             std::cout << "Finished setting up." << std::endl;
         };
@@ -101,6 +126,10 @@ class MapGenerator: public rclcpp::Node
         
         // Publisher
         rclcpp::Publisher<nav_msgs::msg::OccupancyGrid>::SharedPtr publisher_map;
+        rclcpp::Publisher<map_msgs::msg::OccupancyGridUpdate>::SharedPtr publisher_update;
+
+        // Timers
+        rclcpp::TimerBase::SharedPtr timer_;
 
         // tf related
         std::shared_ptr<tf2_ros::StaticTransformBroadcaster> tf_publisher;
@@ -112,27 +141,49 @@ class MapGenerator: public rclcpp::Node
 
         // Callback functions
         void laser_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg){
+            RCLCPP_INFO(this->get_logger(), "Laser reading received");
+            geometry_msgs::msg::TransformStamped robot_pose = tf_buffer->lookupTransform("world", "base_link",tf2::TimePointZero, 100ms);
+            geometry_msgs::msg::TransformStamped robot_pose_2 = tf_buffer->lookupTransform("base_link", "body", tf2::TimePointZero, 100ms);
+            //this->prob_map.updateMap(robot_pose, msg);
+            
+        }
+
+        void send_callback(){
+            map_msgs::msg::OccupancyGridUpdate::SharedPtr msg_out = this->fillUpdateMessage();
+            RCLCPP_INFO(this->get_logger(), "Sending map");
+            this->publisher_update->publish(*msg_out);
+        }
+
+
+        void send_initial(){
             nav_msgs::msg::OccupancyGrid::SharedPtr msg_out = std::make_shared<nav_msgs::msg::OccupancyGrid>();
-            std::cout << "Laser scan received" << std::endl;
-            geometry_msgs::msg::TransformStamped robot_pose = tf_buffer->lookupTransform("map_origin", "body",tf2::TimePointZero, 100ms);
-            std::cout << "Updating map" << std::endl;
-            this->prob_map.updateMap(robot_pose, msg);
-            std::cout << "Filling message" << std::endl;
-            msg_out->header.frame_id = "map_origin";
-            std::cout << "Took the message" << std::endl;
+            RCLCPP_INFO(this->get_logger(), "Sending map");
             this->publisher_map->publish(*msg_out);
-            std::cout << "Message sent" << std::endl;
         }
 
         // Auxiliar functions
-        nav_msgs::msg::OccupancyGrid::SharedPtr fillMapMessage(){
-            nav_msgs::msg::OccupancyGrid::SharedPtr msg = std::make_shared<nav_msgs::msg::OccupancyGrid>();
-            msg->header.frame_id = "map_origin";
-            msg->info = this->map_metadata;
+        map_msgs::msg::OccupancyGridUpdate::SharedPtr fillUpdateMessage(){
+            map_msgs::msg::OccupancyGridUpdate::SharedPtr msg = std::make_shared<map_msgs::msg::OccupancyGridUpdate>();
+            msg->width = this->width;
+            msg->height = this->height;
+            msg->x = 0;
+            msg->y = 0;
             msg->data = *this->prob_map.getProbMap();
-            std::cout << "Returning" << std::endl;
+            msg->header.frame_id = "world";
+            msg->header.stamp = this->get_clock().get()->now();
             return msg;
         }
+
+        nav_msgs::msg::OccupancyGrid::SharedPtr fillMapMessage(){
+            nav_msgs::msg::OccupancyGrid::SharedPtr msg = std::make_shared<nav_msgs::msg::OccupancyGrid>();
+            msg->info = this->map_metadata;
+            msg->data = *this->prob_map.getProbMap();
+            msg->header.frame_id = "world";
+            msg->header.stamp = this->get_clock().get()->now();
+            return msg;
+        }
+
+
 
 };
 
