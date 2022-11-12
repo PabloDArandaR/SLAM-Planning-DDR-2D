@@ -14,17 +14,7 @@ from launch.substitutions import EnvironmentVariable
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
-
-    pkg_gazebo = FindPackageShare(package="gazebo_ros").find('gazebo_ros')
-    pkg_share = FindPackageShare(package='apartment').find('apartment')
-
-    ## Set environment variable for the model
-    
-    SetEnvironmentVariable(name='GAZEBO_MODEL_PATH', value=[EnvironmentVariable('GAZEBO_MODEL_PATH'), ':' + pkg_share + '/worlds'])
-
-    
     # Create the launch description and populate
-
     config = os.path.join(get_package_share_directory('map_generation'), 'config', 'params.yaml')
     print(f"Config is: {config}")
     MapGen = Node(
