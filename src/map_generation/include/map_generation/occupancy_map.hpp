@@ -37,6 +37,7 @@ class occupancyMap{
         float resolution, max_range, min_range, max_angle, min_angle, angle_increment, true_positive, true_negative;
         int map_width, map_height;
         int origin_x, origin_y;
+        int n_rays;
         std::vector<float> * probability_map;
         std::vector<int8_t> * int_probability_map;
         std::vector<float> angles;
