@@ -3,3 +3,4 @@ map_generator:
         resolution : 0.1
         width : 10.0
         height : 10.0
+        initial_probability : 0.0
