@@ -1,0 +1,1 @@
+int direction(double start, double end);
