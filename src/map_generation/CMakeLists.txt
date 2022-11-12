@@ -25,13 +25,14 @@ find_package(tf2_eigen REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(map_msgs REQUIRED)
 
 # include additional files
-set(HEADERS include/map_generation/occupancy_map.hpp)
+set(HEADERS include/map_generation/occupancy_map.hpp include/map_generation/math_aux.hpp)
 include_directories(include)
-add_executable(map_generation src/map_generation.cpp src/occupancy_map.cpp ${HEADERS})
+add_executable(map_generation src/map_generation.cpp src/occupancy_map.cpp src/math_aux.cpp ${HEADERS})
 target_link_libraries(map_generation Eigen3::Eigen)
-ament_target_dependencies(map_generation rclcpp tf2 tf2_ros tf2_eigen nav_msgs geometry_msgs sensor_msgs)
+ament_target_dependencies(map_generation rclcpp tf2 tf2_ros tf2_eigen nav_msgs geometry_msgs sensor_msgs map_msgs)
 
 install(TARGETS
     map_generation
