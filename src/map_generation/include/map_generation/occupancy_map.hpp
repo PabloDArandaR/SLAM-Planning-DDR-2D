@@ -40,7 +40,6 @@ class occupancyMap{
         int n_rays;
         std::vector<float> * probability_map;
         std::vector<int8_t> * int_probability_map;
-        std::vector<float> angles;
         std::vector<vectorType> min_range_points, max_range_points;
 
         // Processing functions
@@ -48,7 +47,7 @@ class occupancyMap{
         void fillPoints(vectorType start, vectorType end, bool endpoint);
         void addOccupiedOdd(int );
         void addNonOccupiedOdd(int );
-        int getIndex(int, int);
+        int getIndex(double, double);
         float intersection(float, float, float);
         
 };

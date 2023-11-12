@@ -26,7 +26,7 @@ def generate_launch_description():
     # Start gazebo 
     world_file = os.path.join(get_package_share_directory('apartment_sim'), 'worlds', 'apartment.world')
     gazebo = ExecuteProcess(
-        cmd=['gazebo', '--verbose', world_file, '-s', 'libgazebo_ros_init.so', 
+        cmd=['gazebo', '--verbose', '-s', 'libgazebo_ros_init.so', 
         '-s', 'libgazebo_ros_factory.so'],
         output='screen'
         )
