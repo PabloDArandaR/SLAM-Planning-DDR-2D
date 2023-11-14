@@ -9,7 +9,7 @@ occupancyGrid::occupancyGrid(int width, int height, int initial_value) : width{w
 }
 
 // Returns a pointer to the vector that contains the map
-std::vector<int>* occupancyGrid::get_map() { return &this->map; }
+std::vector<int8_t>* occupancyGrid::get_map() { return &this->map; }
 
 // Return probability in the cell given the x,y in meters in the frame of the
 // map

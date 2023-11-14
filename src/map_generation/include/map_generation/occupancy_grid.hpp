@@ -1,12 +1,13 @@
 #include <cassert>
 #include <tuple>
 #include <vector>
+#include <cstdint>
 
 class occupancyGrid {
   public:
     occupancyGrid(int width, int height, int initial_value);
 
-    std::vector<int>* get_map();
+    std::vector<int8_t>* get_map();
     int get_probability(float& x, float& y);
 
     void occupancyGrid::set_probability(float& row, float& column, int& new_probability);
@@ -16,7 +17,7 @@ class occupancyGrid {
   private:
     int width, height; // cells
     float resolution;  // m/cells
-    std::vector<int> map;
+    std::vector<int8_t> map;
 
     inline int _return_index(int row, int column);
 };
