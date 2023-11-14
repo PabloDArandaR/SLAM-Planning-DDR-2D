@@ -1,7 +1,7 @@
 #include <cassert>
+#include <cstdint>
 #include <tuple>
 #include <vector>
-#include <cstdint>
 
 class occupancyGrid {
   public:

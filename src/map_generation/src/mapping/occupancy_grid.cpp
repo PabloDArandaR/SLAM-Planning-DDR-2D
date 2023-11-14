@@ -1,4 +1,4 @@
-#include "map_generation/occupancy_grid.hpp"
+#include "mapping/occupancy_grid.hpp"
 
 occupancyGrid::occupancyGrid(int width, int height, int initial_value) : width{width}, height{height} {
 
