@@ -1,15 +1,15 @@
 #include "mapping/occupancy_grid.hpp"
+#include "mapping/types.hpp"
 
-class mappingOccupancyGrid{
+class mappingOccupancyGrid {
 
-    public:
-        virtual void update();
+  public:
+    virtual void update();
 
-        occupancyGrid * get_map();
-        
-        void set_map(occupancyGrid * new_map);
+    occupancyGrid* get_map();
 
-    private:
-        occupancyGrid * map;
+    void set_map(occupancyGrid* new_map);
 
+  protected:
+    occupancyGrid* map;
 };

@@ -11,21 +11,28 @@ occupancyGrid::occupancyGrid(int width, int height, int initial_value) : width{w
 // Returns a pointer to the vector that contains the map
 std::vector<int8_t>* occupancyGrid::get_map() { return &this->map; }
 
+float occupancyGrid::get_resolution() { return this->resolution; };
+
+int occupancyGrid::get_width() { return this->width; };
+
+int occupancyGrid::get_height() { return this->height; };
+
 // Return probability in the cell given the x,y in meters in the frame of the
 // map
-int occupancyGrid::get_probability(float& x, float& y) {
+int occupancyGrid::get_probability(int& x, int& y) {
 
-    int row{0};
-    int column{0};
-
-    std::tie(row, column) = this->calculate_cell_x_y(x, y);
-
-    return this->map[(row - 1) * width - 1 + column];
+    return this->map[(y - 1) * width - 1 + x];
 }
 
 // Set the probability for certain row, column
-void occupancyGrid::set_probability(float& row, float& column, int& new_probability) {
-    this->map[this->_return_index(row, column)];
+void occupancyGrid::set_probability(int& row, int& column, int& new_probability) {
+    if (new_probability > 100){
+        new_probability = 100;
+    }
+    else if (new_probability < 0){
+        new_probability = 0;
+    }
+    this->map[this->_return_index(row, column)] = new_probability;
 }
 
 inline std::tuple<int, int> occupancyGrid::calculate_cell_x_y(float& x, float& y) {
