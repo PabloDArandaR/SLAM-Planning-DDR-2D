@@ -1,0 +1,7 @@
+laser:
+  min_angle: -1
+  max_angle: 1
+  min_range: 0.3
+  max_range: 15
+  resolution: 0.01
+  samples: 150
