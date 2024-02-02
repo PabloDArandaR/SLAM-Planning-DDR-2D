@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+    <gazebo reference="body">
+        <material>Gazebo/White</material>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="wheel_L">
+        <mu1 value="3.0"/>
+        <mu2 value="4.0"/>
+        <kp value="10000000.0"/>
+        <kd value="1.0"/>
+        <fdir1 value="1 0 0"/>
+        <material>Gazebo/Grey</material>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="wheel_R">
+        <mu1 value="1.0"/>
+        <mu2 value="1.0"/>
+        <kp value="10000000.0"/>
+        <kd value="1.0"/>
+        <fdir1 value="1 0 0"/>
+        <material>Gazebo/Grey</material>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="caster">
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+</robot>

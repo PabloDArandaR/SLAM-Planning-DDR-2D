@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <link name="laser_frame">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+    </link>
+
+    <joint name="joint_laser" type="fixed">
+        <parent link="body"/>
+        <child link="laser_frame"/>
+        <origin xyz="0.2 0.1 0.1" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+    <gazebo reference="laser_frame">
+        <sensor name="ray" type="ray">
+            <pose> 0 0 0 0 0 0 </pose>
+            <visualize> true </visualize>
+            <update_rate> 5 </update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples> 150 </samples>
+                        <min_angle> -1 </min_angle>
+                        <max_angle> 1 </max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min> 0.3 </min>
+                    <max> 15 </max>
+                    <resolution> 0.01 </resolution>
+                </range>
+            </ray>
+            
+            <plugin name="laser_scan" filename="libgazebo_ros_ray_sensor.so">
+                <ros>
+                    <remapping>~/out:=laser_scan</remapping>
+                </ros>
+                <output_type> sensor_msgs/LaserScan </output_type>
+                <frameName>laser_frame</frameName>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+</robot>
