@@ -1,0 +1,3 @@
+[submodule "src/mapping_methods"]
+	path = src/mapping_methods
+	url = git@github.com:PabloDArandaR/mapping-methods.git
