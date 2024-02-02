@@ -27,27 +27,76 @@ find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(map_msgs REQUIRED)
 
+include_directories(../mapping_methods/src)
+add_compile_options(-g)
+
 # include additional files
-set(HEADERS include/map_generation/occupancy_map.hpp include/map_generation/math_aux.hpp)
+set(HEADERS 
+    ../mapping_methods/include/mapping/mapping.hpp 
+    ../mapping_methods/include/mapping/no_noise.hpp 
+    ../mapping_methods/include/mapping/occupancy_grid.hpp 
+    ../mapping_methods/include/mapping/scanner_metadata.hpp 
+    ../mapping_methods/include/math/grid.hpp 
+    ../mapping_methods/include/math/linalg.hpp 
+    ../mapping_methods/include/types.hpp)
+
 include_directories(include)
 
-add_executable(map_generation src/map_generation.cpp src/occupancy_map.cpp src/math_aux.cpp ${HEADERS})
-add_executable(store_map src/store_map.cpp)
-add_executable(store_laser_scan src/store_laser_scan.cpp)
+include_directories(../mapping_methods/include)
 
-target_link_libraries(map_generation Eigen3::Eigen)
+add_executable(map_generation
+    src/map_generation.cpp
+    ${HEADERS})
+
+add_executable(frame_initialization
+    src/frame_initialization.cpp
+    )
+
+add_executable(laser_recorder
+    src/laser_recorder.cpp
+    )
+
+add_executable(map_recorder
+    src/map_recorder.cpp
+    )
+
+add_library(mapping_lib
+    ../mapping_methods/src/mapping/mapping.cpp 
+    ../mapping_methods/src/mapping/no_noise.cpp 
+    ../mapping_methods/src/mapping/occupancy_grid.cpp
+    ../mapping_methods/src/mapping/scanner_metadata.cpp
+    ../mapping_methods/src/math/linalg.cpp
+    ../mapping_methods/src/math/grid.cpp)
+
+target_link_libraries(map_generation Eigen3::Eigen mapping_lib)
 
 ament_target_dependencies(map_generation rclcpp tf2 tf2_ros tf2_eigen nav_msgs geometry_msgs sensor_msgs map_msgs)
-ament_target_dependencies(store_map rclcpp nav_msgs geometry_msgs map_msgs)
-ament_target_dependencies(store_laser_scan rclcpp sensor_msgs)
+ament_target_dependencies(frame_initialization rclcpp tf2 tf2_ros tf2_eigen)
+ament_target_dependencies(laser_recorder rclcpp tf2 tf2_ros tf2_eigen nav_msgs geometry_msgs sensor_msgs map_msgs)
+ament_target_dependencies(map_recorder rclcpp tf2 tf2_ros tf2_eigen nav_msgs geometry_msgs sensor_msgs map_msgs)
 
 install(TARGETS
     map_generation
-    store_map
-    store_laser_scan
+    frame_initialization
+    laser_recorder
+    map_recorder
     DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY
       launch config
       DESTINATION share/${PROJECT_NAME})
+
+# Tests
+find_package(ament_cmake_gtest REQUIRED)
+
+ament_add_gtest(${PROJECT_NAME}_linalg_test 
+  test/test_linalg.cpp)
+
+  
+target_include_directories(${PROJECT_NAME}_linalg_test PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+  )
+
+target_link_libraries(${PROJECT_NAME}_linalg_test Eigen3::Eigen mapping_lib)
 
 ament_package()

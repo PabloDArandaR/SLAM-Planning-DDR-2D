@@ -1,6 +1,25 @@
-map_generator:
+map_generation:
     ros__parameters:
-        resolution : 10.0
-        width : 30.0
-        height : 30.0
+        resolution : 0.1
+        width : 300
+        height : 300
         initial_probability : 0.1
+        map_frame: "map"
+laser_recorder:
+    ros__parameters:
+        parent_frame: "map"
+        child_frame: "laser"
+        scan_topic: "/laser_scan"
+        resolution : 0.1
+        width : 1000
+        height : 1000
+frame_initialization:
+    ros__parameters:
+        x: -10.0
+        y: -10.0
+        z: 0.0
+        q0: 1.0
+        qx: 0.0
+        qy: 0.0
+        qz: 0.0
+        map_frame: "map"

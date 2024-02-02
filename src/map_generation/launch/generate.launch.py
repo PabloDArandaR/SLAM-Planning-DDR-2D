@@ -18,7 +18,7 @@ def generate_launch_description():
     config = os.path.join(get_package_share_directory('map_generation'), 'config', 'params.yaml')
     print(f"Config is: {config}")
     MapGen = Node(
-        name='map_generator',
+        name='map_generation',
         package='map_generation',
         executable='map_generation',
         output='screen',

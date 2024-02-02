@@ -1,0 +1,10 @@
+frame_initialization:
+    ros__parameters:
+        x: -10.0
+        y: -10.0
+        z: 0.0
+        q0: 1.0
+        qx: 0.0
+        qy: 0.0
+        qz: 0.0
+        map_frame: "map"
